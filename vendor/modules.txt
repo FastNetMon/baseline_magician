@@ -1,0 +1,25 @@
+# github.com/ClickHouse/clickhouse-go v1.5.4
+github.com/ClickHouse/clickhouse-go
+github.com/ClickHouse/clickhouse-go/lib/binary
+github.com/ClickHouse/clickhouse-go/lib/cityhash102
+github.com/ClickHouse/clickhouse-go/lib/column
+github.com/ClickHouse/clickhouse-go/lib/data
+github.com/ClickHouse/clickhouse-go/lib/lz4
+github.com/ClickHouse/clickhouse-go/lib/protocol
+github.com/ClickHouse/clickhouse-go/lib/types
+# github.com/Knetic/govaluate v3.0.0+incompatible
+github.com/Knetic/govaluate
+# github.com/apparentlymart/go-cidr v1.1.0
+github.com/apparentlymart/go-cidr/cidr
+# github.com/cloudflare/golz4 v0.0.0-20150217214814-ef862a3cdc58
+github.com/cloudflare/golz4
+# github.com/fastnetmon/fastnetmon-go v0.0.0-20220225202824-9959e87666fd
+github.com/fastnetmon/fastnetmon-go
+# github.com/google/go-querystring v1.0.0
+github.com/google/go-querystring/query
+# github.com/levigross/grequests v0.0.0-20190908174114-253788527a1a
+github.com/levigross/grequests
+# github.com/pkg/errors v0.9.1
+github.com/pkg/errors
+# golang.org/x/net v0.0.0-20181011144130-49bb7cea24b1
+golang.org/x/net/publicsuffix
