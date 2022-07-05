@@ -5,20 +5,23 @@ import (
 	"encoding/json"
 	"flag"
 	"fmt"
+	"io/ioutil"
+	"log"
+	"net"
+	"strings"
+
 	_ "github.com/ClickHouse/clickhouse-go"
 	"github.com/Knetic/govaluate"
 	cidr "github.com/apparentlymart/go-cidr/cidr"
 	"github.com/fastnetmon/fastnetmon-go"
 	"github.com/pkg/errors"
-	"io/ioutil"
-	"log"
-	"net"
-	"strings"
 )
 
 type BaselineMagicianConfiguration struct {
 	ClickhouseServerAddress string `json:"clickhouse_host"`
 	ClickhouseServerPort    uint32 `json:"clickhouse_port"`
+	Clickhouse_user         string `json:"clickhouse_user"`
+	Clickhouse_password     string `json:"clickhouse_password"`
 
 	// Time before current time period for which we calculate baseline
 	// 7 days by default, we use seconds

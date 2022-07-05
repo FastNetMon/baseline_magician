@@ -13,6 +13,8 @@ Create file /etc/fastnetmon/baseline_magician.conf and put following content int
 ```{
   "clickhouse_host": "127.0.0.1",
   "clickhouse_port": 9000, 
+  "clickhouse_user": admin",
+  "clickhouse_password": "secure",
   "calculaton_period": 604800,
   "clickhouse_database": "fastnetmon",
   "clickhouse_table": "host_metrics",
