@@ -20,8 +20,8 @@ import (
 type BaselineMagicianConfiguration struct {
 	ClickhouseServerAddress string `json:"clickhouse_host"`
 	ClickhouseServerPort    uint32 `json:"clickhouse_port"`
-	Clickhouse_user         string `json:"clickhouse_user"`
-	Clickhouse_password     string `json:"clickhouse_password"`
+	ClickhouseUser          string `json:"clickhouse_user"`
+	ClickhousePassword      string `json:"clickhouse_password"`
 
 	// Time before current time period for which we calculate baseline
 	// 7 days by default, we use seconds
@@ -62,6 +62,8 @@ func main() {
 	configuration.CalculationPeriod = 7 * 24 * 3600
 	configuration.ClickhouseServerAddress = "127.0.0.1"
 	configuration.ClickhouseServerPort = 9000
+	configuration.ClickhouseUser = "default"
+
 	configuration.ApiUser = "admin"
 	configuration.ApiPassword = "test_password"
 	configuration.ApiHost = "127.0.0.1"
@@ -91,7 +93,7 @@ func main() {
 	// log.Printf("Read custom database configuration: %+v", configuration)
 
 	// You can add: ?debug=true for debugging
-	clickhouse_client, err := sql.Open("clickhouse", fmt.Sprintf("tcp://%s:%d", configuration.ClickhouseServerAddress, configuration.ClickhouseServerPort))
+	clickhouse_client, err := sql.Open("clickhouse", fmt.Sprintf("tcp://%s:%d?username=%s&password=%s", configuration.ClickhouseServerAddress, configuration.ClickhouseServerPort, configuration.ClickhouseUser, configuration.ClickhousePassword))
 
 	if err != nil {
 		log.Fatalf("Cannot connect to Clickhouse: %v", err)
@@ -110,7 +112,7 @@ func main() {
 	networks_list := []string{}
 
 	if *cli_networks_list != "" {
-		// We will use networkst list from cli argument when specified
+		// We will use networks list from cli argument when specified
 		for _, network := range strings.Split(*cli_networks_list, ",") {
 			_, _, err := net.ParseCIDR(network)
 
