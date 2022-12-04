@@ -4,7 +4,7 @@ This tool can create host group for each of your networks from networks_list wit
 
 # Build process
 
-```go build```
+```CGO_ENABLED=0 go build```
 
 # Configuration
 
